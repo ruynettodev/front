@@ -1,0 +1,15 @@
+<nav style="display:flex; gap:12px; align-items:center; padding:12px; border-bottom:1px solid #ddd">
+  <a routerLink="/books">Livros</a>
+  <a routerLink="/favorites">Favoritos</a>
+  <span style="flex:1 1 auto"></span>
+  <button *ngIf="isLoggedIn(); else authLinks" (click)="logout()">Sair</button>
+  <ng-template #authLinks>
+    <a routerLink="/login">Entrar</a>
+    <a routerLink="/register">Registrar</a>
+  </ng-template>
+  
+  
+</nav>
+<div style="padding:16px">
+  <router-outlet></router-outlet>
+</div>

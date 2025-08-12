@@ -1,0 +1,20 @@
+<h2>Livros</h2>
+
+<form (ngSubmit)="save()" style="display:flex; gap:8px; margin-bottom:12px">
+  <input [(ngModel)]="form.title" name="title" placeholder="Título" required>
+  <input [(ngModel)]="form.author" name="author" placeholder="Autor" required>
+  <button type="submit">{{editingId ? 'Atualizar' : 'Criar'}}</button>
+  <button type="button" *ngIf="editingId" (click)="cancelEdit()">Cancelar</button>
+  <span style="color:red" *ngIf="error">{{error}}</span>
+  <span style="color:green" *ngIf="success">{{success}}</span>
+</form>
+
+<ul>
+  <li *ngFor="let book of books" style="margin:6px 0">
+    <strong>{{book.title}}</strong> - {{book.author}}
+    <button (click)="favorite(book._id)">Fav/Desfav</button>
+    <button (click)="startEdit(book)">Editar</button>
+    <button (click)="remove(book._id)">Excluir</button>
+  </li>
+  <li *ngIf="!books?.length">Nenhum livro encontrado.</li>
+</ul>

@@ -1,0 +1,8 @@
+<h2>Registrar</h2>
+<div *ngIf="error" style="color:red">{{error}}</div>
+<form (ngSubmit)="register()">
+  <input [(ngModel)]="name" name="name" placeholder="Nome" required>
+  <input type="email" [(ngModel)]="email" name="email" placeholder="Email" required>
+  <input type="password" [(ngModel)]="password" name="password" placeholder="Senha" required>
+  <button type="submit">Registrar</button>
+</form>
